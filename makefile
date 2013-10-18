@@ -1,11 +1,11 @@
 CC=gcc
-CFLAGS=-g3 `pkg-config --cflags glfw3`
-INCLUDES=-I/usr/local/include `pkg-config --static --libs glfw3`
+CFLAGS=-g3 `pkg-config --cflags glfw3` `pkg-config --cflags glu`
+INCLUDES=-I/usr/local/include `pkg-config --static --libs glfw3` `pkg-config --static --libs glu`
 
 BinaryName=manip
 
 
-OBJS=main.o
+OBJS=main.o sphere.o
 
 all: $(OBJS) $(BinaryName)
 
@@ -17,4 +17,4 @@ $(BinaryName):
 	$(CC) -o $(BinaryName) $(LDFLAGS) $(INCLUDES) $(OBJS)
 
 clean:
-	rm -rf *.o
+	rm -rf *.o $(BinaryName)
