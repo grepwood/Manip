@@ -3,6 +3,11 @@
 #include <stdio.h>
 #include <string.h>
 
+void rtfm(char * exe)
+{
+	puts("Please give 2 arguments.")
+}
+
 static void error_callback(int error, const char* description)
 {
     fputs(description, stderr);
@@ -14,7 +19,11 @@ static void key_callback(GLFWwindow* window, int key, int scancode, int action, 
 }
 int main(int argc, char **argv)
 {
-
+	if(argc != 3)
+	{
+		void rtfm(argv[1]);
+		exit(1);
+	}
    int slices, stack,width, height;
 	float ratio;
 	slices = atoi(argv[1]);
